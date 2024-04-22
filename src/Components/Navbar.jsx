@@ -12,10 +12,15 @@ function Navbar() {
             <input
               type="text"
               className="border border-black rounded-sm w-64 h-10 p-2 ps-12"
+              placeholder="Find your city..."
             />
           </div>
           <div className="flex items-center border border-2 rounded-sm border-black ">
-            <input type="text" className="rounded-sm  w-64 h-10 p-2" />
+            <input
+              type="text"
+              className="rounded-sm  w-64 h-10 p-2"
+              placeholder="Find Cars, mobile phones etc."
+            />
             <button className="flex items-center justify-center bg-black h-full w-12 rounded-sm">
               <IoSearch
                 className="absolute ms-2 bg-black text-white"
