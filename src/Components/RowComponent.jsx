@@ -1,9 +1,11 @@
-import { carData } from "../Static/Data";
+import { useContext } from "react";
 import ItemCard from "./ItemCard";
+import { CarContext } from "../Context/DataContextProvider";
 
 // eslint-disable-next-line react/prop-types, no-unused-vars
 function RowComponent({ title }) {
-  console.log(carData);
+  const carData = useContext(CarContext);
+
   return (
     <>
       <h1 className="mt-6 font-semibold text-xl">{title}</h1>
