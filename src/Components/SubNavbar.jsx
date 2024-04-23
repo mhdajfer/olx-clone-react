@@ -6,7 +6,7 @@ function SubNavbar() {
       <div className="flex bg-gray-100 my-3 h-10 items-center justify-center">
         <div className="flex items-center space-x-2 me-16 text-lg font-semibold cursor-pointer">
           <h1>All Categories</h1>
-          <SlArrowDown />
+          <SlArrowDown className="transition-all ease-in-out delay-100 duration-300 hover:rotate-180" />
         </div>
         <div>
           <ul className="flex space-x-3">

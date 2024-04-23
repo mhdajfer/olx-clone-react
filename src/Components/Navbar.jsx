@@ -1,7 +1,9 @@
 import olxLogo from "../assets/olx-logo.svg";
 import { IoSearch } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
+  const navigate = useNavigate();
   return (
     <>
       <nav className="flex items-center justify-between px-12 bg-gray-200">
@@ -30,7 +32,10 @@ function Navbar() {
           </div>
         </div>
         <div>
-          <button className="font-semibold mx-8 hover:border-none border-b  border-black">
+          <button
+            className="font-semibold mx-8 hover:border-none border-b  border-black"
+            onClick={() => navigate("/login")}
+          >
             Login
           </button>
 

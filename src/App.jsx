@@ -1,18 +1,14 @@
-import Navbar from "./Components/Navbar";
-import SubNavbar from "./Components/SubNavbar";
-import Banner from "./Components/Banner";
-import RowComponent from "./Components/RowComponent";
-import Footer from "./Components/Footer";
+import { Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home";
+import Login from "./Pages/Login";
 
 function App() {
   return (
     <>
-      <Navbar />
-      <SubNavbar />
-      <Banner />
-      <RowComponent />
-      <RowComponent />
-      <Footer />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
     </>
   );
 }
