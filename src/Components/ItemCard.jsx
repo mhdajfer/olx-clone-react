@@ -9,13 +9,13 @@ function ItemCard({ car }) {
           <div className="absolute top-5 right-4 bg-white p-2 rounded-full hover:text-red-500">
             <FiHeart />
           </div>
-          <img src={car?.img} alt="img" className="w-56" />
+          <img src={car?.image} alt="img" className="w-56" />
         </div>
         <div>
           <h1 className="font-semibold text-xl mt-2 border-t border-black">
             ₹{car?.price}
           </h1>
-          <h3 className="text-gray-500">{car?.name}</h3>
+          <h3 className="text-gray-500">{car?.model}</h3>
           <h3 className="text-gray-500">
             {car?.year} - {car?.place}
           </h3>

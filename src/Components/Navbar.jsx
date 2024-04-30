@@ -25,7 +25,12 @@ function Navbar() {
   return (
     <>
       <nav className="flex items-center justify-between px-12 bg-gray-200">
-        <img src={olxLogo} alt="olx-logo" className="w-16" />
+        <img
+          src={olxLogo}
+          alt="olx-logo"
+          className="w-16 cursor-pointer"
+          onClick={() => navigate("/")}
+        />
         <div className="flex space-x-8">
           <div className="relative flex items-center">
             <IoSearch className="absolute ms-2 " size={20} />
@@ -61,7 +66,10 @@ function Navbar() {
 
           <button className="relative overflow-hidden p-2  rounded-full text-white ">
             <span className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-yellow-300 via-cyan-500 to-blue-600" />
-            <span className="bg-white text-black px-8 py-1 relative z-10 rounded-full">
+            <span
+              className="bg-white text-black px-8 py-1 relative z-10 rounded-full"
+              onClick={() => navigate("/add")}
+            >
               Sell
             </span>
           </button>

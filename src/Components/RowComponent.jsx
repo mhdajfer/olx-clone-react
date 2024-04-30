@@ -4,17 +4,21 @@ import { CarContext } from "../Context/DataContextProvider";
 
 // eslint-disable-next-line react/prop-types, no-unused-vars
 function RowComponent({ title }) {
-  const carData = useContext(CarContext);
+  const { vehicleData } = useContext(CarContext);
 
   return (
     <>
       <h1 className="mt-6 font-semibold text-xl">{title}</h1>
       <div className=" h-fit flex mt-4">
-        {carData.map((car, i) => (
-          <div key={i}>
-            <ItemCard car={car} />
-          </div>
-        ))}
+        {!vehicleData.length ? (
+          <h1>Nothing to sell!!...</h1>
+        ) : (
+          vehicleData.map((car, i) => (
+            <div key={i}>
+              <ItemCard car={car} />
+            </div>
+          ))
+        )}
       </div>
     </>
   );

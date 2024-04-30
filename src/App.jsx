@@ -5,6 +5,7 @@ import DataContextProvider from "./Context/DataContextProvider";
 import Signup from "./Pages/Signup";
 import { AuthContextProvider } from "./Context/AuthContext";
 import { Toaster } from "react-hot-toast";
+import AddProduct from "./Pages/AddProduct";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/add" element={<AddProduct/>}/>
           </Routes>
         </AuthContextProvider>
       </DataContextProvider>
