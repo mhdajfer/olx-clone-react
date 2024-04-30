@@ -1,9 +1,25 @@
 import olxLogo from "../assets/olx-logo.svg";
 import { IoSearch } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../Context/AuthContext";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase/Config";
 
 function Navbar() {
   const navigate = useNavigate();
+
+  function signout() {
+    signOut(auth)
+      .then(() => {
+        navigate("/login");
+      })
+      .catch((err) => {
+        console.log("something went wrong", err);
+      });
+  }
+
+  const { isUserAuthenticated } = useContext(AuthContext);
   return (
     <>
       <nav className="flex items-center justify-between px-12 bg-gray-200">
@@ -34,9 +50,11 @@ function Navbar() {
         <div>
           <button
             className="font-semibold mx-8 hover:border-none border-b  border-black"
-            onClick={() => navigate("/login")}
+            onClick={() =>
+              isUserAuthenticated ? signout() : navigate("/login")
+            }
           >
-            Login
+            {isUserAuthenticated ? "Logout" : "Login"}
           </button>
 
           <button className="relative overflow-hidden p-2  rounded-full text-white ">
