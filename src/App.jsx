@@ -4,6 +4,7 @@ import Login from "./Pages/Login";
 import DataContextProvider from "./Context/DataContextProvider";
 import Signup from "./Pages/Signup";
 import { AuthContextProvider } from "./Context/AuthContext";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           </Routes>
         </AuthContextProvider>
       </DataContextProvider>
+      <Toaster />
     </>
   );
 }

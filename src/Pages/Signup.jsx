@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase/Config";
+import { auth, db } from "../firebase/Config";
+import { doc, setDoc } from "firebase/firestore";
+import toast from "react-hot-toast";
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -16,12 +18,26 @@ const Signup = () => {
     setPhone(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!email || !password) return;
-    createUserWithEmailAndPassword(auth, email, password).then((res) => {
-      console.log(res);
+    if (!email || !password) return toast.error("please enter the details");
+    const { user } = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    const userDocRef = doc(db, "users", user.uid);
+
+    await setDoc(userDocRef, {
+      name: name,
+      email: email,
+      phone: phone,
     });
+    toast.success("user added successfully");
+    setName("");
+    setEmail("");
+    setPhone("");
+    setPassword("");
   };
 
   return (

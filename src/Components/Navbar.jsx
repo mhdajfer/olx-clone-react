@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase/Config";
+import toast from "react-hot-toast";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ function Navbar() {
     signOut(auth)
       .then(() => {
         navigate("/login");
+        toast.success("logged out");
       })
       .catch((err) => {
         console.log("something went wrong", err);
